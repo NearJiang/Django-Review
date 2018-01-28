@@ -1,0 +1,8 @@
+{{ post.body|truncatechars:30 }}
+truncate表示截取的意思
+
+然后显示为：
+xxx（30chares）...
+
+更：chars是用来规范中文的
+    英文可用words

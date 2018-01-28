@@ -1,0 +1,37 @@
+virtual environment
+
+强烈推荐在 Virtualenv 下进行 Django 的开发。
+Virtualenv 是一个 Python 工具，
+使用它可以创建一个独立的 Python 环境
+
+Virtualenv 帮我们从系统的 Python环境中克隆一个全新的 Python 环境
+
+这个环境独立于原来的 Python 环境。
+我们可以在这个新克隆的环境下安装 Django 的随便哪个版本，
+并且在这个新环境下运行我们的新项目
+
+pip install virtualenv 即可
+
+安装成功后就可以开始创建虚拟环境，指定一个你喜欢的目录，Virtualenv 会把这个新的虚拟环境装到你指定目录下。
+例如我把它装到 桌面 ， 打开我的电脑点击desktop，cmd
+
+运行virtualenv xxx（你自己定名字）
+虚拟环境已经创建好了，我们需要激活这个环境，运行 xxx 目录下的 Scripts下的activate 程序激活它：
+
+cd xxx（进入xxx里）
+dir（读取）
+Scripts\activate
+(xxx) C:\WINDOWS\system32>......
+
+注意 Linux 下没有 Scripts 这个目录，取而代之的是 bin/ 目录。且激活命令为：
+
+$ source blogproject_env/bin/activate
+可以看到命令提示符前面多了 (虚拟环境名)，说明我们已经成功激活了虚拟环境
+
+再次申明一定要在虚拟环境下运行这些命令，虚拟环境的标志就是命令提示符前有 (虚拟环境名) 这样的标记。
+(虚拟环境名) C:\WINDOWS\system32>cd C:\Users\yangxg\Workspace
+以后几乎所有和 Django 有关的命令都是在虚拟环境下运行，因此在运行前一定确保先开启了虚拟环境
+
+最后就可以在里面 pip install Django==2.0(随你哪个版本咯)
+
+退出：deactivate

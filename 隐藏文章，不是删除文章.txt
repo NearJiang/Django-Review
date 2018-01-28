@@ -1,0 +1,23 @@
+models.py
+
+class Post下面
+	is_deleted = models.BooleanField(default=False)默认不被删除
+
+admin.py
+
+list_display里加个is_deleted
+
+views.py
+
+post_list = Post.objects.all().order_by('-id')
+
+Post.objects.all()改为：
+Post.objects.filter(is_deleted=False):
+就是说过滤出来没被删除的
+
+最后最重要的！！！迁移数据库！！！
+
+
+然后你在后台is_deleted打勾的那个post就在展示页面看不到了
+但我们并没有删除它
+删除的话直接在post页面那个动作框里有删除选项

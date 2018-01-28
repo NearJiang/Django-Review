@@ -1,0 +1,17 @@
+post_list：Post.objects.all()
+{{ post_list|length }}就可以显示你有多少篇文章
+
+可以在for循环上面或者endfor下面 写
+一共有{{ post_list|length }}篇文章
+
+
+也可以：
+	views.py里
+加上
+	posy_count = Post.objects.all().count()
+	底下的context里加个'post_count': post_count
+再在首页html里加个
+	{post_count}
+
+
+但这个比上面繁多了！

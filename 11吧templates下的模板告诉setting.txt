@@ -1,0 +1,8 @@
+setting/TEMPLATES/'DIR':[]
+
+在[]里写入   os.path.join(BASE_DIR, 'templates')
+
+BASE_DIR是setting.py在配置开头前面定义的变量，记录的是根目录的值
+也就是最外层的blogproject，在这个根目录下有个templates目录
+用os.path.join()把templates和setting联合起来
+Django 就知道去这个路径下面找我们的模板了

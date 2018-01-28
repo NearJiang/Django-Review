@@ -1,0 +1,4 @@
+在有manage.py的那个页面cmd
+python manage.py startapp yyy
+
+然后去setting里的 INSTALLED_APPS  添加一个‘yyy’

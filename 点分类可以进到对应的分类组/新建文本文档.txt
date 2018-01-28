@@ -1,0 +1,22 @@
+先去html里
+	<p>分类:{{ post.category }}
+
+urls:
+from .views import type
+	path('category/<int:catgory_pk>',type,name='type')
+
+views:
+from .models import Post, Category
+def type(request,catgory_pk):
+	category=get_object_or_404(Category,pk=category_pk)②
+	type_list=Post.objects.filter(category=category)①
+	return render(request,'blog/type.html',context=
+				{'type_list':type_list,
+				 'category':category})
+
+去写个type.html
+	{{ category.name }}
+
+再去html里
+	<p>分类:<a href={% url 'blog:type' post.category.pk %}>
+					{{ post.category }}

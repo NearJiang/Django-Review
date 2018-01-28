@@ -1,0 +1,4 @@
+在blog下创建static
+以防冲突
+在static下创建一个blog目录
+存放对应于blog的CSS,JS

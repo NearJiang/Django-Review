@@ -1,0 +1,4 @@
+都是可以post.xxx的 因为我们在views里def deatil里已经写了
+post = get_object_or_404(Post,pk=pk)
+
+{{ post.created_time|date:'Y-m-d H:m:s' }}

@@ -1,0 +1,17 @@
+给Post加个helper
+
+先定义一个Helper类
+class Helper(models.Model):
+	name = models.CharField(max_length=100)
+	def __str__(self):
+		return self.name
+
+再在Post里面添加
+	helper =  models.ManyToManyField(Helper, blank=True)
+                  
+然后去admin里
+from .models import Helper# 一定要import！！！！
+
+admin.site.register(Helper)不注册就添加不了helper了
+
+哦，迁移数据库，不然数据库不知道你加了东西！

@@ -1,0 +1,32 @@
+进入app/admin.py文件夹
+from .models import (Category, Tag, Post)#导入models.py的模块
+
+admin.site.register(Category)#在admin站点里注册你的模块
+admin.site.register(Tag)#注册模块名必须与导入模块名一直
+admin.site.register(Post)
+
+#讲真，只需导入和注册post文章模块就行了，面向用户的是Post的
+那俩个就是个绿叶...
+
+提示：
+站点标题为你的app名，自动给全部大写
+注册的模块名会自动给你加个s
+
+
+更：还是导入和注册Category和Tag吧，不然后台写post时不能添加
+分类和标签！！！！万恶的资本主义！
+
+在站点管理Posts 列表里页面，我们只看到了文章的标题
+我们可以加入更多元素：
+   专门定义一个post管理类，是继承admin中的模块管理属性
+class PostAdmin(admin.ModelAdmin):
+    list_display = ['pk','title', 'created_time', 'modified_time', 
+	 				'category', 'author']
+                   这边list或tuple都可以[]/()
+admin.site.register(Post)
+改为admin.site.register(Post, PostAdmin)
+或者不写admin.site.register(Post, PostAdmin)
+直接在class上面添加@admin.register(Post)   效果一致
+      没有class类不能用@方法的！！！！！！
+
+更：list_display里不能放ManyToManyField的对象！What the F？

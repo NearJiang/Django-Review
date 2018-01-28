@@ -1,0 +1,24 @@
+写好你的数据库模型models.py的代码
+注意class的模块类必须继承models.Model
+models.Model是模块祖师爷！
+每个class下
+    def __str__(self):  python2:__str__ 方法改为 __unicode__
+        return self.name(title)
+为了取数据的时候直接看得懂，不然你后台管理的那个页面就是
+xxx object(1)(2)(3)...想知道是什么，还得每个点进去.
+
+models.ForeignKey(爸爸,on_delete=models.CASCADE,default=1)
+on_delete属性：
+
+CASCADE: 默认的，级联删除
+PROTECT: 通过抛出django.db.models.ProtectedErrordjango.db.models.ProtectedError错误来阻止删除关联的对象
+SET_NULL: 设置ForeignKey 为 null; 这个只有设置了null 为 True的情况才能用
+
+SET_DEFAULT: 设置 ForeignKey 为默认值; 默认值必须预先设置
+
+SET(): 设置为某个方法返回的值
+DO_NOTHING: 什么都不做，如果数据库设置必须关联则会报IntegrityError错
+
+以后报错on_delete,首选CASCADE，不行就一个一个试，错误中学习！！
+
+上面的default=1表示你写Post时，显示给你的默认(作者)就是第一个

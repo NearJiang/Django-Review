@@ -1,0 +1,19 @@
+展示页面：
+views.py
+
+def index(request):
+    post_list = Post.objects.all().order_by('-id')
+    -id也就 = -created_time 倒序，最新的放最前
+    #这边排序是拍的展示页面那个文字排序，
+  
+    return render(request, 'blog/index.html', context={'post_list': post_list})
+
+后台：
+admin.py
+ class xxx(admin.ModelAdmin):
+	yyy = []
+        ordering = ('')  
+但是！我试了N次，无论你怎么搞。。。
+都是倒序，ordering啊 order_by啊。+-啊，统统没用
+不管了，本来就是要倒序
+不需要你设置还不好吗！！！

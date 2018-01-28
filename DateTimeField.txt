@@ -1,0 +1,13 @@
+created_time = models.DateTimeField(auto_now_add=True)
+modified_time = models.DateTimeField(auto_now=True)
+
+后台管理页面的时间就不需要你认为设置了
+auto_now_add=True  
+字段在实例第一次保存的时候会保存当前时间
+也就是写的时候自动给你添加时间
+auto_now=True
+字段保存时会自动保存当前时间     
+也就是修改后也给你自动更换时间
+
+这俩个不写的默认为False，也就是自己搞时间，你如果要搞黑幕的话
+这个可以的哟！

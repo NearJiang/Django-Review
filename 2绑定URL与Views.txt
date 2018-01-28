@@ -1,0 +1,21 @@
+绑定 URL 与视图函数
+
+想一想，我们打开浏览器，输入URL，然后返回url绑定的view返回给我们
+
+在blogproject下创建一个views.py：
+
+	from django.http import HttpResponse（响应请求）
+
+	def hello(request):#定义一个名为hello的request请求
+    		return HttpResponse('hello world')#响应一个字符串
+
+把这个新创建的views添加到urls.py：
+from.import views  #.这个点表示在同一文件夹内，就可以直接导入
+urlpatterns = [
+	path('',view.hello,name='hello'),
+]
+
+def的函数添加方式为：path('', views.xxx, name='xxx')
+
+还有其它2中import和path用法请打开全局URLS.PY
+

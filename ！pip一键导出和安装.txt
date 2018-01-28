@@ -1,0 +1,3 @@
+pip freeze > requirements.txt 随便你什么名啦，但这个比较被通用
+
+pip install -r requirements.txt

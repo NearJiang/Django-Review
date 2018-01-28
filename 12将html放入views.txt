@@ -1,0 +1,23 @@
+既然我们有模块了，东西就不必都挤在views里了，
+在模块里写好大概，导入到我们的views里
+
+def index(request):
+	return render(request, 'blog/index.html',context={
+			'title':'蒋爸爸的博客',
+			'welcome':'欢迎欢迎，热烈欢迎！'
+		})
+
+这里我们不再是直接把字符串传给 HttpResponse 了，
+而是调用 Django 提供的 render 函数。
+这个函数根据我们传入的参数来构造 HttpResponse
+render(request,模块，模块变量)
+
+context={''：''}冒号前面写模块变量{{}}的名，后面写你要展示的内容
+            后面是字符串，才要加''
+更：context前面是你要展示的内容名字，后面是你想展示的内容形式
+例如post_list：Post.objects.all()
+
+def index(request):
+post_list = Post.objects.all().order_by('-created_time')
+return render(request, 'blog/index.html', 
+			context={'post_list': post_list})

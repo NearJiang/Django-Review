@@ -1,0 +1,13 @@
+from django.shortcuts import render
+
+def index(request):
+	return render(request, ' ', context={' ':  })
+
+
+就等于==
+from django.shortcuts import render_to_response
+def index(request):
+	return render to response(' ', context={' ':  })
+
+context前面是你要展示的内容名字，后面是你想展示的内容形式
+例如post_list：Post.objects.all()

@@ -1,0 +1,47 @@
+增：
+>>> from blog.models import Category, Tag, Post
+>>> from django.utils import timezone
+>>> from django.contrib.auth.models import User
+
+>>> c = Category(name='category test')
+>>> c.save()
+
+>>> user = User.objects.get(username='Near')#你创建的用户名
+>>> c = Category.objects.get(name='category test')
+
+>>> p = Post(title='title test', body='body test', 
+		created_time=timezone.now(), 
+		modified_time=timezone.now(), 
+		category=c, author=user)
+>>> p.save()
+
+删：
+>>> p = Post.objects.get(title='title test')
+>>> p
+<Post: title test>
+>>> p.delete()
+(1, {'blog.Post_tags': 0, 'blog.Post': 1})
+>>> Post.objects.all()
+<QuerySet []>
+
+改：
+>>> c = Category.objects.get(name='category test')
+>>> c.name = 'category test new'
+>>> c.save()
+>>> Category.objects.all()
+<QuerySet [<Category: test category new>]>
+
+查：
+>>> from blog.models import Category, Tag, Post
+>>> Category.objects.all()
+<QuerySet [<Category: category test>]>
+
+>>> Tag.objects.all()
+<QuerySet [<Tag: tag test>]>
+
+>>> Post.objects.all()
+<QuerySet [<Post: title test>]>
+
+>>> Post.objects.get(title='title test')
+<Post: title test>
+

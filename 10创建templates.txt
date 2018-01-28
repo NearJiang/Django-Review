@@ -1,0 +1,19 @@
+在manage页面创建templates模板文件夹
+在里面创建blog文件夹，用于存放与blog相关的模板
+
+创建一个index.html：
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<meta charset='utf-8'>
+		<title>{{ title }}</title>
+	</head>
+	<body>
+	<h1>{{ welcome }}</h1>
+	</body>
+</html>
+
+用 {{ }} 包起来的变量叫做模板变量。
+Django 在渲染这个模板的时候会根据
+我们传递给模板的变量替换掉这些变量。
+最终在模板中显示的将会是我们传递的值

@@ -1,0 +1,7 @@
+创建一个文件夹在里面cmd
+运行 django-admin startproject xxx
+
+可选操作：进settings
+修改 LANGUAGE_CODE = 'zh-hans'简体中文
+     
+     TIME_ZONE 由原先的UTC世界标准时间改为= 'Asia/Shanghai'

@@ -1,0 +1,12 @@
+from django.urls import path
+from .views import index = ①from .import views
+
+app_name = 'blog'
+urlpatterns = [
+    path('', index, name='index'),= ①('', views.index, name='index')
+]
+
+app_name='blog' 告诉 Django 这个 urls.py 模块是属于 blog 应用的，
+这种技术叫做  视图函数命名空间
+
+防止御别的视图函数名冲突

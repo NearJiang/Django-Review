@@ -1,0 +1,27 @@
+blog/views.py
+from django.shortcuts import render, get_object_or_404
+def detail(request,pk):#pk就是id  post_id
+	post = get_object_or_404(Post, pk=pk)
+	#前面pk是固定的，后面的就是上面那个你自己写的id参数名
+	return render(request, 'blog/detail.html', 
+			context={'post': post})
+blog/urls.py
+
+from . import views
+
+    path('^post/(?P<pk>[0-9]+)/$',views.detail,name='detail'),
+    #你不想写正则表达式的话，就直接'post/<int:pk>'
+	#<>中的变量一定要与views中的detail参数一致
+
+blog/models.py
+
+from django.urls import reverse
+
+class Post下
+	def get_absolute_url(self):
+		return reverse('blog:detail',kwargs={'pk':self.pk})
+ #这边的blog就是上面app_name，detail就是urls中的别名
+更简单方法：
+不要在models里定义get_absolute_url
+在index.html里标题超链接直接写：{% url 'blog:detail' post.pk %}
+{% url 'blog:index' %}就是回到首页
